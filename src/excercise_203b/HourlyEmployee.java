@@ -2,7 +2,7 @@ package excercise_203b;
 
 public class HourlyEmployee extends Employee
 {
-
+    
     private double hoursWorkedPerWeek;
     private double paymentPerHour;
 
@@ -16,19 +16,31 @@ public class HourlyEmployee extends Employee
     }
 
     @Override
+    public double getPaymentAmount()
+    {
+        System.out.println(super.getFirstName() + " " + super.getLastName() 
+                + " monthly salary: ");
+        return earning() * 4;
+    }
+
+    @Override
     double earning()
     {
         return paymentPerHour * hoursWorkedPerWeek;
-
     }
 
     @Override
     public String toString()
     {
-
         return super.getFirstName() + " " + super.getLastName()
-                + " Social security number: " + super.getSsn()
-                + " Weekly salary: " + earning();
+                + "\nSocial security number: " + super.getSsn()
+                + "\nWeekly salary: " + earning() +"\n";
+    }
+    
+    @Override
+    public double totalCost()
+    {
+        return earning() * 4;
     }
 
 }

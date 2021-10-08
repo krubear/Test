@@ -1,25 +1,28 @@
 package excercise_203b;
 
-
-public abstract class Employee
+public abstract class Employee implements IPayable
 {
-    private String firstName;
-    private String lastName;
-    private long ssn;
-    
-    Employee (String firstName, String lastName, long ssn)
+
+    private final String firstName;
+    private final String lastName;
+    private final long ssn;
+
+    Employee(String firstName, String lastName, long ssn)
     {
         this.firstName = firstName;
         this.lastName = lastName;
         this.ssn = ssn;
     }
-    
+
     @Override
     public String toString()
     {
-        return firstName + " " + lastName + ", Social security number: " + ssn;
+        return "Employee: " + firstName + " " + lastName + "\n Social security number: " + ssn;
     }
-    
+
+    @Override
+    public abstract double getPaymentAmount();
+
     abstract double earning();
 
     public String getFirstName()
@@ -36,5 +39,5 @@ public abstract class Employee
     {
         return ssn;
     }
- 
+
 }
